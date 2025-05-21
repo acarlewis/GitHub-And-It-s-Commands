@@ -7,6 +7,29 @@ Comandos de Git
 - [Türkçe Versiyon](READMEtr.md)
 
 
+### INSTALLATION & GUIS
+_With platform specific installers for Git, GitHub also provides the ease of staying up-to-date with the latest releases of the command line tool while providing a graphical user interface for day-to-day interaction, review, and repository synchronization._
+
+#### GitHub for Windows
+_https://windows.github.com_
+
+#### GitHub for Mac
+_https://mac.github.com_
+
+_For Linux and Solaris platforms, the latest release is available on the official Git web site._
+
+#### GitHub for All Platforms
+_http://git-scm.com_
+
+### SETUP
+_Configuring user information used across all local repositories_
+
+| Setup |
+|-------|
+|`git config --global user.name “[firstname lastname]”` <br/> Set a name that is identifiable for credit when review version history|
+|`git config --global user.email “[valid-email]”` <br/> Set an email address that will be associated with each history marker|
+|`git config --global color.ui auto` <br/> Set automatic command line coloring for Git for easy reviewing|
+
 
 ### Conseguir y crear proyectos
 
