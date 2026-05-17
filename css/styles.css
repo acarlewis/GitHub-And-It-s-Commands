@@ -23,7 +23,11 @@
   /* Text */
   --text:        #e2e8f0;
   --text-2:      #cbd5e1;
-  --text-muted:  #64748b;
+  --text-muted:  #8896a7;
+
+  /* Override Bootstrap's light-theme secondary color so .text-muted is
+     legible on dark backgrounds instead of rendering near-invisible */
+  --bs-secondary-color: #8896a7;
 
   /* Accent — electric blue */
   --blue:        #00aaff;
