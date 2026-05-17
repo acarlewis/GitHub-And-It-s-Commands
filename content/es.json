@@ -1,0 +1,31 @@
+{
+  "title": "Comandos de Git",
+  "subtitle": "Git es el sistema de control de versiones distribuido, libre y de código abierto, responsable de todo lo relacionado con GitHub que ocurre localmente en tu computadora. Esta hoja de referencia incluye los comandos Git más importantes y utilizados.",
+  "sections": [
+    {
+      "id": "setup-init",
+      "title": "Conseguir y Crear Proyectos",
+      "content": "<p class='text-muted'>Inicializar o clonar un repositorio.</p><table class='table table-bordered table-hover'><thead class='table-dark'><tr><th>Comando</th><th>Descripción</th></tr></thead><tbody><tr><td><code>git init</code></td><td>Inicializa un repositorio local de Git</td></tr><tr><td><code>git clone ssh://git@github.com/[nombreDeUsuario]/[nombre-del-repo].git</code></td><td>Crea una copia local de un repositorio remoto</td></tr></tbody></table>"
+    },
+    {
+      "id": "stage-snapshot",
+      "title": "Comandos Básicos",
+      "content": "<p class='text-muted'>Comandos fundamentales para el día a día.</p><table class='table table-bordered table-hover'><thead class='table-dark'><tr><th>Comando</th><th>Descripción</th></tr></thead><tbody><tr><td><code>git status</code></td><td>Comprobar el estado actual</td></tr><tr><td><code>git add [nombre-del-archivo.txt]</code></td><td>Añade un archivo a la zona de subir cambios</td></tr><tr><td><code>git add -A</code></td><td>Añade todos los archivos del repositorio a la zona de subir cambios</td></tr><tr><td><code>git commit -m \"[Mensaje del commit]\"</code></td><td>Crea un mensaje explicativo de los cambios</td></tr><tr><td><code>git rm -r [nombre-del-archivo.txt]</code></td><td>Elimina un archivo (o carpeta)</td></tr></tbody></table>"
+    },
+    {
+      "id": "branch-merge",
+      "title": "Ramas y Fusiones",
+      "content": "<p class='text-muted'>Crear, listar y fusionar ramas.</p><table class='table table-bordered table-hover'><thead class='table-dark'><tr><th>Comando</th><th>Descripción</th></tr></thead><tbody><tr><td><code>git branch</code></td><td>Muestra una lista de las ramas (el asterisco señala la rama activa)</td></tr><tr><td><code>git branch -a</code></td><td>Muestra una lista de todas las ramas (locales y remotas)</td></tr><tr><td><code>git branch [nombre de la rama]</code></td><td>Crea una nueva rama</td></tr><tr><td><code>git branch -d [nombre de la rama]</code></td><td>Elimina una rama local</td></tr><tr><td><code>git push origin --delete [nombre de la rama]</code></td><td>Elimina una rama remota</td></tr><tr><td><code>git checkout -b [nombre de la rama]</code></td><td>Crea una nueva rama y nos desplaza hasta ella</td></tr><tr><td><code>git checkout -b [nombre de la rama] origin/[nombre de la rama]</code></td><td>Clona una rama remota y nos desplaza hasta ella</td></tr><tr><td><code>git branch -m [nombre de la rama antigua] [nombre de la rama nueva]</code></td><td>Renombra una rama local</td></tr><tr><td><code>git checkout [nombre de la rama]</code></td><td>Cambia a una rama concreta</td></tr><tr><td><code>git checkout -</code></td><td>Cambia a la última rama activa</td></tr><tr><td><code>git checkout -- [nombre-del-archivo.txt]</code></td><td>Descarta cambios en un archivo</td></tr><tr><td><code>git merge [nombre de la rama]</code></td><td>Combina una rama concreta con la rama activa</td></tr><tr><td><code>git merge [nombre de la rama de origen] [nombre de la rama de destino]</code></td><td>Combina una rama concreta con una rama de destino</td></tr><tr><td><code>git stash</code></td><td>Revierte los últimos cambios en el directorio actual</td></tr><tr><td><code>git stash clear</code></td><td>Revierte todos los cambios en el directorio actual</td></tr></tbody></table>"
+    },
+    {
+      "id": "sharing-updating",
+      "title": "Compartir y Actualizar Proyectos",
+      "content": "<p class='text-muted'>Enviar y recibir cambios desde un repositorio remoto.</p><table class='table table-bordered table-hover'><thead class='table-dark'><tr><th>Comando</th><th>Descripción</th></tr></thead><tbody><tr><td><code>git push origin [nombre de la rama]</code></td><td>Envía una rama local al repositorio remoto</td></tr><tr><td><code>git push -u origin [nombre de la rama]</code></td><td>Envía cambios al repositorio remoto (y te posiciona en la rama concreta)</td></tr><tr><td><code>git push</code></td><td>Envía cambios al repositorio remoto (en la rama actual)</td></tr><tr><td><code>git push origin --delete [nombre de la rama]</code></td><td>Elimina una rama remota</td></tr><tr><td><code>git pull</code></td><td>Actualiza el repositorio local al último commit enviado</td></tr><tr><td><code>git pull origin [nombre de la rama]</code></td><td>Trae todos los cambios de un repositorio remoto</td></tr><tr><td><code>git remote add origin ssh://git@github.com/[nombreDeUsuario]/[nombre-del-repo].git</code></td><td>Añade cambios a un repositorio remoto</td></tr><tr><td><code>git remote set-url origin ssh://git@github.com/[nombreDeUsuario]/[nombre-del-repo].git</code></td><td>Ubica la rama remota de un repositorio mediante su SSH</td></tr></tbody></table>"
+    },
+    {
+      "id": "inspection-comparison",
+      "title": "Inspeccionar y Comparar",
+      "content": "<p class='text-muted'>Visualizar cambios, historial y diferencias.</p><table class='table table-bordered table-hover'><thead class='table-dark'><tr><th>Comando</th><th>Descripción</th></tr></thead><tbody><tr><td><code>git log</code></td><td>Visualiza los cambios</td></tr><tr><td><code>git log --summary</code></td><td>Visualiza los cambios (en detalle)</td></tr><tr><td><code>git log --oneline</code></td><td>Visualiza los cambios (resumido)</td></tr><tr><td><code>git diff [source branch] [target branch]</code></td><td>Vista previa de los cambios antes de hacer un merge</td></tr></tbody></table>"
+    }
+  ]
+}

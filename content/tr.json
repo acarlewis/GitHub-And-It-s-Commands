@@ -1,0 +1,61 @@
+{
+  "title": "GitHub ve Komutları",
+  "subtitle": "Git, bilgisayarınızda yerel olarak gerçekleşen GitHub ile ilgili her şeyden sorumlu olan ücretsiz ve açık kaynaklı dağıtılmış sürüm kontrol sistemidir. Bu hile sayfası, kolay referans için en önemli ve yaygın olarak kullanılan Git komutlarını içerir.",
+  "sections": [
+    {
+      "id": "installation-guis",
+      "title": "Kurulum & GUIs",
+      "content": "<p class='text-muted'>Git için platforma özgü yükleyicilerle GitHub, günlük etkileşim, inceleme ve depo senkronizasyonu için grafiksel bir kullanıcı arayüzü sağlarken komut satırı aracının en son sürümleriyle güncel kalma kolaylığı da sağlar.</p><ul class='list-group list-group-flush border rounded'><li class='list-group-item d-flex justify-content-between align-items-center'><strong>Windows için GitHub</strong><a href='https://windows.github.com' target='_blank' rel='noopener' class='btn btn-sm btn-outline-primary'>windows.github.com</a></li><li class='list-group-item d-flex justify-content-between align-items-center'><strong>Mac için GitHub</strong><a href='https://mac.github.com' target='_blank' rel='noopener' class='btn btn-sm btn-outline-primary'>mac.github.com</a></li><li class='list-group-item d-flex justify-content-between align-items-center'><span><strong>Tüm Platformlar için GitHub</strong> <small class='text-muted'>(Linux &amp; Solaris)</small></span><a href='http://git-scm.com' target='_blank' rel='noopener' class='btn btn-sm btn-outline-primary'>git-scm.com</a></li></ul>"
+    },
+    {
+      "id": "setup",
+      "title": "Kurmak",
+      "content": "<p class='text-muted'>Tüm yerel depolar genelinde kullanılan kullanıcı bilgilerinin yapılandırılması.</p><table class='table table-bordered table-hover'><thead class='table-dark'><tr><th>Komut &amp; Açıklama</th></tr></thead><tbody><tr><td><code>git config --global user.name \"[ad soyadı]\"</code><br><small class='text-muted'>Sürüm geçmişini incelerken kredi için tanımlanabilir bir ad belirleyin</small></td></tr><tr><td><code>git config --global user.email \"[geçerli e-posta]\"</code><br><small class='text-muted'>Her geçmiş işaretleyicisiyle ilişkilendirilecek bir e-posta adresi ayarlayın</small></td></tr><tr><td><code>git config --global color.ui auto</code><br><small class='text-muted'>Git için kolay inceleme için otomatik komut satırı renklendirmesini ayarlayın</small></td></tr></tbody></table>"
+    },
+    {
+      "id": "setup-init",
+      "title": "Kurulum & Başlatma",
+      "content": "<p class='text-muted'>Kullanıcı bilgilerini yapılandırma, depoları başlatma ve klonlama.</p><table class='table table-bordered table-hover'><thead class='table-dark'><tr><th>Komut</th><th>Açıklama</th></tr></thead><tbody><tr><td><code>git init</code></td><td>Yerel bir Git reposunu başlat</td></tr><tr><td><code>git clone ssh://git@github.com/[username]/[repository-name].git</code></td><td>Uzak bir reponun yerel bir kopyasını oluştur</td></tr></tbody></table>"
+    },
+    {
+      "id": "stage-snapshot",
+      "title": "Temel Anlık Görüntü",
+      "content": "<p class='text-muted'>Anlık görüntüler ve Git hazırlama alanıyla çalışma.</p><table class='table table-bordered table-hover'><thead class='table-dark'><tr><th>Komut</th><th>Açıklama</th></tr></thead><tbody><tr><td><code>git status</code></td><td>Durumu kontrol et</td></tr><tr><td><code>git add [dosya-adı.txt]</code></td><td>Hazırlama alanına bir dosya ekle</td></tr><tr><td><code>git add -A</code></td><td>Tüm yeni ve değiştirilen dosyaları hazırlama alanına ekle</td></tr><tr><td><code>git commit -m \"[commit message]\"</code></td><td>Değişiklikleri commit et</td></tr><tr><td><code>git reset [dosya]</code></td><td>Çalışma dizinindeki değişiklikleri koruyarak bir dosyayı sahneden kaldır</td></tr><tr><td><code>git diff</code></td><td>Değiştirilen ama sahnelenmeyen şeyin farkı</td></tr><tr><td><code>git diff --staged</code></td><td>Sahnelenen ancak henüz taahhüt edilmeyen şeyin farkı</td></tr><tr><td><code>git rm -r [dosya-adı.txt]</code></td><td>Dosyayı (ya da dizini) sil</td></tr><tr><td><code>git remote -v</code></td><td>Şu anda çalışan dosyanın veya dizinin uzak deposunu görüntüle</td></tr></tbody></table>"
+    },
+    {
+      "id": "branch-merge",
+      "title": "Dallanma ve Birleşme",
+      "content": "<p class='text-muted'>Dallarda çalışmayı izole etme, bağlamı değiştirme ve değişiklikleri entegre etme.</p><table class='table table-bordered table-hover'><thead class='table-dark'><tr><th>Komut</th><th>Açıklama</th></tr></thead><tbody><tr><td><code>git branch</code></td><td>Branch'leri listele (yıldız işareti mevcut branch'i gösterir)</td></tr><tr><td><code>git branch -a</code></td><td>Tüm branch'leri listele (yerel ve uzak)</td></tr><tr><td><code>git branch [şube adı]</code></td><td>Yeni bir branch oluştur</td></tr><tr><td><code>git branch -d [şube adı]</code></td><td>Branch'i sil</td></tr><tr><td><code>git push origin --delete [şube adı]</code></td><td>Uzak branch'i sil</td></tr><tr><td><code>git checkout -b [şube adı]</code></td><td>Yeni bir branch oluştur ve ona geçiş yap</td></tr><tr><td><code>git checkout -b [şube adı] origin/[şube adı]</code></td><td>Uzak branch'i klonla ve ona geçiş yap</td></tr><tr><td><code>git branch -m [eski şube adı] [yeni şube adı]</code></td><td>Yerel branch'i yeniden adlandır</td></tr><tr><td><code>git checkout [şube adı]</code></td><td>Belirtilen branch'e geçiş yap</td></tr><tr><td><code>git checkout -</code></td><td>Son kontrol edilen branch'e geç</td></tr><tr><td><code>git checkout -- [file-name.txt]</code></td><td>Bir dosyadaki değişiklikleri sil</td></tr><tr><td><code>git merge [şube adı]</code></td><td>Bir branch'i aktif branch ile birleştir</td></tr><tr><td><code>git merge [kaynak dalı] [hedef şube]</code></td><td>Branch'i hedef branch ile birleştir</td></tr><tr><td><code>git stash</code></td><td>Yarım kalan çalışma dizinindeki değişiklikleri sakla</td></tr><tr><td><code>git stash clear</code></td><td>Saklanan tüm girişleri kaldır</td></tr><tr><td><code>git stash pop</code></td><td>En son stash'i çalışma dizinine uygula</td></tr><tr><td><code>git log</code></td><td>Mevcut dalın geçmişindeki tüm commitleri göster</td></tr></tbody></table>"
+    },
+    {
+      "id": "sharing-updating",
+      "title": "Projeleri Paylaşma ve Güncelleme",
+      "content": "<p class='text-muted'>Başka bir depodan güncellemeleri alma ve yerel depoları güncelleme.</p><table class='table table-bordered table-hover'><thead class='table-dark'><tr><th>Komut</th><th>Açıklama</th></tr></thead><tbody><tr><td><code>git push origin [şube adı]</code></td><td>Uzak repoya bir branch gönder</td></tr><tr><td><code>git push -u origin [şube adı]</code></td><td>Değişiklikleri uzak repoya aktar (ve branch'i hatırla)</td></tr><tr><td><code>git push</code></td><td>Değişiklikleri uzak repoya aktar (hatırlanan branch)</td></tr><tr><td><code>git push origin --delete [şube adı]</code></td><td>Uzak branch'i sil</td></tr><tr><td><code>git pull</code></td><td>Yerel repoyu en yeni commit'e güncelle</td></tr><tr><td><code>git pull origin [şube adı]</code></td><td>Değişiklikleri uzak repodan çek</td></tr><tr><td><code>git remote add origin ssh://git@github.com/[kullanıcı adı]/[depo-adı].git</code></td><td>Uzak repo ekle</td></tr><tr><td><code>git remote set-url origin ssh://git@github.com/[kullanıcı adı]/[depo-adı].git</code></td><td>Bir reponun başlangıç branch'ini SSH olarak ayarla</td></tr><tr><td><code>git fetch [alias]</code></td><td>Git uzak sunucusundan tüm dalları al</td></tr></tbody></table>"
+    },
+    {
+      "id": "inspection-comparison",
+      "title": "İnceleme ve Karşılaştırma",
+      "content": "<p class='text-muted'>Günlükleri, farkları ve nesne bilgilerini inceleme.</p><table class='table table-bordered table-hover'><thead class='table-dark'><tr><th>Komut</th><th>Açıklama</th></tr></thead><tbody><tr><td><code>git log</code></td><td>Değişiklikleri görüntüle</td></tr><tr><td><code>git log --summary</code></td><td>Değişiklikleri görüntüle (detaylı)</td></tr><tr><td><code>git log --oneline</code></td><td>Değişiklikleri görüntüle (kısaca)</td></tr><tr><td><code>git diff [source branch] [hedef şube]</code></td><td>Birleştirmeden önce değişiklikleri önizle</td></tr><tr><td><code>git log branchB..branchA</code></td><td>BranchA'da olup BranchB'de olmayan commitleri göster</td></tr><tr><td><code>git log --follow [dosya]</code></td><td>Dosyayı değiştiren commit'leri, yeniden adlandırmalarda bile göster</td></tr><tr><td><code>git diff branchB...branchA</code></td><td>BranchA'da olup BranchB'de olmayanın farkını göster</td></tr><tr><td><code>git show [SHA]</code></td><td>Git'te herhangi bir nesneyi insan tarafından okunabilir biçimde göster</td></tr></tbody></table>"
+    },
+    {
+      "id": "tracking-path",
+      "title": "Yol Değişikliklerini İzleme",
+      "content": "<p class='text-muted'>Sürüm dosyası kaldırılır ve yol değişiklikleri yapılır.</p><table class='table table-bordered table-hover'><thead class='table-dark'><tr><th>Komut</th><th>Açıklama</th></tr></thead><tbody><tr><td><code>git rm [dosya]</code></td><td>Dosyayı projeden silin ve kaldırma işlemini commit için aşamalandırın</td></tr><tr><td><code>git mv [mevcut-yol] [yeni-yol]</code></td><td>Mevcut bir dosya yolunu değiştirin ve taşımayı aşamalandırın</td></tr><tr><td><code>git log --stat -M</code></td><td>Taşınan tüm yolların göstergesiyle birlikte tüm commit günlüklerini göster</td></tr></tbody></table>"
+    },
+    {
+      "id": "rewrite-history",
+      "title": "Geçmişi Yeniden Yazma",
+      "content": "<p class='text-muted'>Dalları yeniden yazma, commit'leri güncelleme ve geçmişi temizleme.</p><table class='table table-bordered table-hover'><thead class='table-dark'><tr><th>Komut</th><th>Açıklama</th></tr></thead><tbody><tr><td><code>git rebase [branch]</code></td><td>Mevcut dalın herhangi bir commit'ini belirtilenden önce uygula</td></tr><tr><td><code>git reset --hard [commit]</code></td><td>Sahneleme alanını temizle, çalışma ağacını belirtilen commit'ten yeniden yaz</td></tr></tbody></table>"
+    },
+    {
+      "id": "ignoring-patterns",
+      "title": "Desenleri Yoksayma",
+      "content": "<p class='text-muted'>Dosyaların istenmeden sahnelenmesini veya işlenmesini önleme.</p><table class='table table-bordered table-hover'><thead class='table-dark'><tr><th>Komut</th><th>Açıklama</th></tr></thead><tbody><tr><td><pre class='mb-0'><code>logs/\n*.notes\npattern*/</code></pre></td><td>İstenilen desenleri içeren bir dosyayı <code>.gitignore</code> olarak doğrudan dize eşleşmeleri veya joker karakter kümeleri ile kaydedin</td></tr><tr><td><code>git config --global core.excludesfile [dosya]</code></td><td>Tüm yerel depolar için sistem genelinde örüntüyü yoksay</td></tr></tbody></table>"
+    },
+    {
+      "id": "temporary-commits",
+      "title": "Geçici Commit'ler",
+      "content": "<p class='text-muted'>Dalları değiştirmek için değiştirilmiş, izlenen dosyaları geçici olarak depolayın.</p><table class='table table-bordered table-hover'><thead class='table-dark'><tr><th>Komut</th><th>Açıklama</th></tr></thead><tbody><tr><td><code>git stash</code></td><td>Değiştirilen ve aşamalı değişiklikleri kaydet</td></tr><tr><td><code>git stash list</code></td><td>Saklanmış dosya değişikliklerinin yığın sırasını listele</td></tr><tr><td><code>git stash pop</code></td><td>Yığının tepesinden çalışarak yaz</td></tr><tr><td><code>git stash drop</code></td><td>Değişiklikleri stash yığınının üstünden at</td></tr></tbody></table>"
+    }
+  ]
+}
