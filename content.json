@@ -1,0 +1,61 @@
+{
+  "title": "GitHub & It's Commands",
+  "subtitle": "Git is the free and open source distributed version control system responsible for everything GitHub-related that happens locally on your computer. This cheat sheet features the most important and commonly used Git commands for easy reference.",
+  "sections": [
+    {
+      "id": "installation-guis",
+      "title": "Installation & GUIs",
+      "content": "<p class='text-muted'>With platform specific installers for Git, GitHub also provides the ease of staying up-to-date with the latest releases of the command line tool while providing a graphical user interface for day-to-day interaction, review, and repository synchronization.</p><ul class='list-group list-group-flush border rounded'><li class='list-group-item d-flex justify-content-between align-items-center'><strong>GitHub for Windows</strong><a href='https://windows.github.com' target='_blank' rel='noopener' class='btn btn-sm btn-outline-primary'>windows.github.com</a></li><li class='list-group-item d-flex justify-content-between align-items-center'><strong>GitHub for Mac</strong><a href='https://mac.github.com' target='_blank' rel='noopener' class='btn btn-sm btn-outline-primary'>mac.github.com</a></li><li class='list-group-item d-flex justify-content-between align-items-center'><span><strong>GitHub for All Platforms</strong> <small class='text-muted'>(Linux &amp; Solaris)</small></span><a href='http://git-scm.com' target='_blank' rel='noopener' class='btn btn-sm btn-outline-primary'>git-scm.com</a></li></ul>"
+    },
+    {
+      "id": "setup",
+      "title": "Setup",
+      "content": "<p class='text-muted'>Configuring user information used across all local repositories.</p><table class='table table-bordered table-hover'><thead class='table-dark'><tr><th>Command &amp; Description</th></tr></thead><tbody><tr><td><code>git config --global user.name \"[firstname lastname]\"</code><br><small class='text-muted'>Set a name that is identifiable for credit when reviewing version history</small></td></tr><tr><td><code>git config --global user.email \"[valid-email]\"</code><br><small class='text-muted'>Set an email address that will be associated with each history marker</small></td></tr><tr><td><code>git config --global color.ui auto</code><br><small class='text-muted'>Set automatic command line coloring for Git for easy reviewing</small></td></tr></tbody></table>"
+    },
+    {
+      "id": "setup-init",
+      "title": "Setup & Init",
+      "content": "<p class='text-muted'>Configuring user information, initializing and cloning repositories.</p><table class='table table-bordered table-hover'><thead class='table-dark'><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code>git init</code></td><td>Initialize an existing directory as a Git repository</td></tr><tr><td><code>git clone ssh://git@github.com/[username]/[repository-name].git</code></td><td>Retrieve an entire repository from a hosted location via URL</td></tr></tbody></table>"
+    },
+    {
+      "id": "stage-snapshot",
+      "title": "Stage & Snapshot",
+      "content": "<p class='text-muted'>Working with snapshots and the Git staging area.</p><table class='table table-bordered table-hover'><thead class='table-dark'><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code>git status</code></td><td>Show modified files in working directory, staged for your next commit</td></tr><tr><td><code>git add [file-name.txt]</code></td><td>Add a file as it looks now to your next commit (stage)</td></tr><tr><td><code>git add -A</code></td><td>Add all new and changed files to the staging area</td></tr><tr><td><code>git commit -m \"[commit message]\"</code></td><td>Commit your staged content as a new commit snapshot</td></tr><tr><td><code>git reset [file]</code></td><td>Unstage a file while retaining the changes in working directory</td></tr><tr><td><code>git diff</code></td><td>Diff of what is changed but not staged</td></tr><tr><td><code>git diff --staged</code></td><td>Diff of what is staged but not yet committed</td></tr><tr><td><code>git rm -r [file-name.txt]</code></td><td>Remove a file (or folder)</td></tr><tr><td><code>git remote -v</code></td><td>View the remote repository of the currently working file or directory</td></tr></tbody></table>"
+    },
+    {
+      "id": "branch-merge",
+      "title": "Branch & Merge",
+      "content": "<p class='text-muted'>Isolating work in branches, changing context, and integrating changes.</p><table class='table table-bordered table-hover'><thead class='table-dark'><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code>git branch</code></td><td>List branches (the asterisk denotes the current branch)</td></tr><tr><td><code>git branch -a</code></td><td>List all branches (local and remote)</td></tr><tr><td><code>git branch [branch name]</code></td><td>Create a new branch at the current commit</td></tr><tr><td><code>git branch -d [branch name]</code></td><td>Delete a branch</td></tr><tr><td><code>git push origin --delete [branch name]</code></td><td>Delete a remote branch</td></tr><tr><td><code>git checkout -b [branch name]</code></td><td>Create a new branch and switch to it</td></tr><tr><td><code>git checkout -b [branch name] origin/[branch name]</code></td><td>Clone a remote branch and switch to it</td></tr><tr><td><code>git branch -m [old branch name] [new branch name]</code></td><td>Rename a local branch</td></tr><tr><td><code>git checkout [branch name]</code></td><td>Switch to a branch</td></tr><tr><td><code>git checkout -</code></td><td>Switch to the branch last checked out</td></tr><tr><td><code>git checkout -- [file-name.txt]</code></td><td>Discard changes to a file</td></tr><tr><td><code>git merge [branch name]</code></td><td>Merge the specified branch's history into the current one</td></tr><tr><td><code>git merge [source branch] [target branch]</code></td><td>Merge a branch into a target branch</td></tr><tr><td><code>git stash</code></td><td>Stash changes in a dirty working directory</td></tr><tr><td><code>git stash clear</code></td><td>Remove all stashed entries</td></tr><tr><td><code>git stash pop</code></td><td>Apply latest stash to working directory</td></tr><tr><td><code>git log</code></td><td>Show all commits in the current branch's history</td></tr></tbody></table>"
+    },
+    {
+      "id": "sharing-updating",
+      "title": "Sharing & Updating Projects",
+      "content": "<p class='text-muted'>Retrieving updates from another repository and updating local repos.</p><table class='table table-bordered table-hover'><thead class='table-dark'><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code>git push origin [branch name]</code></td><td>Push a branch to your remote repository</td></tr><tr><td><code>git push -u origin [branch name]</code></td><td>Push changes to remote repository (and remember the branch)</td></tr><tr><td><code>git push</code></td><td>Push changes to remote repository (remembered branch)</td></tr><tr><td><code>git push origin --delete [branch name]</code></td><td>Delete a remote branch</td></tr><tr><td><code>git pull</code></td><td>Update local repository to the newest commit</td></tr><tr><td><code>git pull origin [branch name]</code></td><td>Pull changes from remote repository</td></tr><tr><td><code>git remote add origin ssh://git@github.com/[username]/[repository-name].git</code></td><td>Add a remote repository</td></tr><tr><td><code>git remote set-url origin ssh://git@github.com/[username]/[repository-name].git</code></td><td>Set a repository's origin branch to SSH</td></tr><tr><td><code>git fetch [alias]</code></td><td>Fetch down all the branches from that Git remote</td></tr></tbody></table>"
+    },
+    {
+      "id": "inspection-comparison",
+      "title": "Inspection & Comparison",
+      "content": "<p class='text-muted'>Examining logs, diffs and object information.</p><table class='table table-bordered table-hover'><thead class='table-dark'><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code>git log</code></td><td>Show the commit history for the currently active branch</td></tr><tr><td><code>git log --summary</code></td><td>View changes (detailed)</td></tr><tr><td><code>git log --oneline</code></td><td>View changes (briefly)</td></tr><tr><td><code>git diff [source branch] [target branch]</code></td><td>Preview changes before merging</td></tr><tr><td><code>git log branchB..branchA</code></td><td>Show the commits on branchA that are not on branchB</td></tr><tr><td><code>git log --follow [file]</code></td><td>Show the commits that changed file, even across renames</td></tr><tr><td><code>git diff branchB...branchA</code></td><td>Show the diff of what is in branchA that is not in branchB</td></tr><tr><td><code>git show [SHA]</code></td><td>Show any object in Git in human-readable format</td></tr></tbody></table>"
+    },
+    {
+      "id": "tracking-path",
+      "title": "Tracking Path Changes",
+      "content": "<p class='text-muted'>Versioning file removes and path changes.</p><table class='table table-bordered table-hover'><thead class='table-dark'><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code>git rm [file]</code></td><td>Delete the file from project and stage the removal for commit</td></tr><tr><td><code>git mv [existing-path] [new-path]</code></td><td>Change an existing file path and stage the move</td></tr><tr><td><code>git log --stat -M</code></td><td>Show all commit logs with indication of any paths that moved</td></tr></tbody></table>"
+    },
+    {
+      "id": "rewrite-history",
+      "title": "Rewrite History",
+      "content": "<p class='text-muted'>Rewriting branches, updating commits and clearing history.</p><table class='table table-bordered table-hover'><thead class='table-dark'><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code>git rebase [branch]</code></td><td>Apply any commits of current branch ahead of specified one</td></tr><tr><td><code>git reset --hard [commit]</code></td><td>Clear staging area, rewrite working tree from specified commit</td></tr></tbody></table>"
+    },
+    {
+      "id": "ignoring-patterns",
+      "title": "Ignoring Patterns",
+      "content": "<p class='text-muted'>Preventing unintentional staging or committing of files.</p><table class='table table-bordered table-hover'><thead class='table-dark'><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><pre class='mb-0'><code>logs/\n*.notes\npattern*/</code></pre></td><td>Save a file with desired patterns as <code>.gitignore</code> using direct string matches or wildcard globs</td></tr><tr><td><code>git config --global core.excludesfile [file]</code></td><td>System wide ignore pattern for all local repositories</td></tr></tbody></table>"
+    },
+    {
+      "id": "temporary-commits",
+      "title": "Temporary Commits",
+      "content": "<p class='text-muted'>Temporarily store modified, tracked files in order to change branches.</p><table class='table table-bordered table-hover'><thead class='table-dark'><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code>git stash</code></td><td>Save modified and staged changes</td></tr><tr><td><code>git stash list</code></td><td>List stack-order of stashed file changes</td></tr><tr><td><code>git stash pop</code></td><td>Write working from top of stash stack</td></tr><tr><td><code>git stash drop</code></td><td>Discard the changes from top of stash stack</td></tr></tbody></table>"
+    }
+  ]
+}
