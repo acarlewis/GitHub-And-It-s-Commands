@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Remove-Item \"d:\\\\3D Objects\\\\Programming\\\\GitHub\\\\GitHub-And-It-s-Commands\\\\js\\\\app.js\" -Confirm:$false)",
+      "PowerShell(Remove-Item \"d:\\\\3D Objects\\\\Programming\\\\GitHub\\\\GitHub-And-It-s-Commands\\\\css\\\\styles.css\" -Confirm:$false)",
+      "PowerShell(Remove-Item \"d:\\\\3D Objects\\\\Programming\\\\GitHub\\\\GitHub-And-It-s-Commands\\\\css\" -Confirm:$false)",
+      "PowerShell(Remove-Item \"d:\\\\3D Objects\\\\Programming\\\\GitHub\\\\GitHub-And-It-s-Commands\\\\js\" -Confirm:$false)",
+      "PowerShell(Remove-Item \"d:\\\\3D Objects\\\\Programming\\\\GitHub\\\\GitHub-And-It-s-Commands\\\\content.json\" -Confirm:$false)"
+    ]
+  }
+}

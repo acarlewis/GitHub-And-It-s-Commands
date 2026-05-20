@@ -1,143 +1,132 @@
-GitHub & It's Commands
-============
-*Git is the free and open source distributed version control system that's responsible for everything GitHub related that happens locally on your computer. This cheat sheet features the most important and commonly used Git commands for easy reference.*
+# 📄 DevDocs — Multi-language Documentation Site
 
+A clean, fast, and fully static documentation website built with vanilla JavaScript, Bootstrap 5, and Highlight.js. Content is driven by JSON files, making it easy to add new sections or languages without touching any HTML or JS.
 
-## Translated Versions
-- [Version Française](READMEfr.md)
-- [Türkçe Versiyon](READMEtr.md)
-- [Versión en Español](READMEes.md)
+---
 
+## ✨ Features
 
-### INSTALLATION & GUIS
-_With platform specific installers for Git, GitHub also provides the ease of staying up-to-date with the latest releases of the command line tool while providing a graphical user interface for day-to-day interaction, review, and repository synchronization._
+- **JSON-driven content** — all sections and text live in `content/*.json`; no HTML edits needed to update docs
+- **Multi-language support** — switch languages instantly via a segmented pill control in the navbar; preference is saved to `localStorage`
+- **Responsive layout** — desktop sidebar + Bootstrap Offcanvas mobile drawer, both kept in sync automatically
+- **Syntax highlighting** — powered by Highlight.js; any `<pre><code>` block is highlighted automatically
+- **Copy button** — appears on hover over any code block; turns green with a checkmark on success
+- **Active section tracking** — `IntersectionObserver` highlights the current section in the sidebar as you scroll
+- **Section anchors** — every `<h2>` gets a `#` permalink that appears on hover
+- **Back-to-top button** — fades in after scrolling 400px with a smooth lift-on-hover effect
+- **Responsive tables** — all tables are automatically wrapped in `table-responsive` divs
 
-#### GitHub for Windows
-_https://windows.github.com_
+---
 
-#### GitHub for Mac
-_https://mac.github.com_
+## 📁 Project Structure
 
-_For Linux and Solaris platforms, the latest release is available on the official Git web site._
+```
+├── index.html          # App shell — navbar, sidebar, offcanvas, main content area
+├── css/
+│   └── styles.css      # All custom styles — 20+ CSS variables for easy re-theming
+├── js/
+│   └── app.js          # Fetches JSON, builds nav + content, drives all interactive features
+└── content/
+    ├── en.json         # English content
+    └── fr.json         # French content (add more as needed)
+```
 
-#### GitHub for All Platforms
-_http://git-scm.com_
+---
 
-### SETUP
-_Configuring user information used across all local repositories_
+## 🚀 Getting Started
 
-| Setup |
-|-------|
-|`git config --global user.name “[firstname lastname]”` <br/> Set a name that is identifiable for credit when review version history|
-|`git config --global user.email “[valid-email]”` <br/> Set an email address that will be associated with each history marker|
-|`git config --global color.ui auto` <br/> Set automatic command line coloring for Git for easy reviewing|
+### Prerequisites
 
-### SETUP & INIT
-_Configuring user information, initializing and cloning repositories_
+You need a local HTTP server to run the app — `fetch()` won't work over `file://` due to browser CORS rules.
 
-| Command | Description |
-| ------- | ----------- |
-| `git init` | Initialize an existing directory as a Git repository |
-| `git clone ssh://git@github.com/[username]/[repository-name].git` | Retrieve an entire repository from a hosted location via URL |
+**Python:**
+```bash
+python -m http.server 8000
+```
 
-### STAGE & SNAPSHOT
-_Working with snapshots and the Git staging area_
+**Node.js:**
+```bash
+npx serve .
+```
 
-| Command | Description |
-| ------- | ----------- |
-| `git status` | Show modified files in working directory, staged for your next commit |
-| `git add [file-name.txt]` | Add a file as it looks now to your next commit (stage) |
-| `git add -A` | Add all new and changed files to the staging area |
-| `git commit -m "[commit message]"` | Commit your staged content as a new commit snapshot |
-| `git reset [file]` | Unstage a file while retaining the changes in working directory |
-| `git diff` | Diff of what is changed but not staged |
-| `git diff --staged` | Diff of what is staged but not yet commited |
-| `git rm -r [file-name.txt]` | Remove a file (or folder) |
-| `git remote -v` | View the remote repository of the currently working file or directory |
+**VS Code:** Install the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension, then right-click `index.html` → **Open with Live Server**.
 
-### BRANCH & MERGE
-_Isolating work in branches, changing context, and integrating changes_
+Then open [http://localhost:8000](http://localhost:8000) in your browser.
 
-| Command | Description |
-| ------- | ----------- |
-| `git branch` | List branches (the asterisk denotes the current branch) |
-| `git branch -a` | List all branches (local and remote) |
-| `git branch [branch name]` | create a new branch at the current commit |
-| `git branch -d [branch name]` | Delete a branch |
-| `git push origin --delete [branch name]` | Delete a remote branch |
-| `git checkout -b [branch name]` | Create a new branch and switch to it |
-| `git checkout -b [branch name] origin/[branch name]` | Clone a remote branch and switch to it |
-| `git branch -m [old branch name] [new branch name]` | Rename a local branch |
-| `git checkout [branch name]` | Switch to a branch |
-| `git checkout -` | Switch to the branch last checked out |
-| `git checkout -- [file-name.txt]` | Discard changes to a file |
-| `git merge [branch name]` | Merge the specified branch’s history into the current one |
-| `git merge [source branch] [target branch]` | Merge a branch into a target branch |
-| `git stash` | Stash changes in a dirty working directory |
-| `git stash clear` | Remove all stashed entries |
-| `git stash pop` | Apply latest stash to working directory |
-| `git log` | Show all commits in the current branch’s history |
+---
 
-### Sharing & Updating Projects
-_Retrieving updates from another repository and updating local repos_
+## 🌍 Deploying to GitHub Pages
 
-| Command | Description |
-| ------- | ----------- |
-| `git push origin [branch name]` | Push a branch to your remote repository |
-| `git push -u origin [branch name]` | Push changes to remote repository (and remember the branch) |
-| `git push` | Push changes to remote repository (remembered branch) |
-| `git push origin --delete [branch name]` | Delete a remote branch |
-| `git pull` | Update local repository to the newest commit |
-| `git pull origin [branch name]` | Pull changes from remote repository |
-| `git remote add origin ssh://git@github.com/[username]/[repository-name].git` | Add a remote repository |
-| `git remote set-url origin ssh://git@github.com/[username]/[repository-name].git` | Set a repository's origin branch to SSH |
-| `git fetch [alias]` | Fetch down all the branches from that Git remote |
+1. Push your project to a public GitHub repository
+2. Go to **Settings → Pages**
+3. Set source to **Deploy from a branch → main → / (root)**
+4. Your site will be live at `https://YOUR_USERNAME.github.io/YOUR_REPO/`
 
-### Inspection & Comparison
-_Examining logs, diffs and object information_
+No build step required — it works out of the box.
 
-| Command | Description |
-| ------- | ----------- |
-| `git log` | Show the commit history for the currently active branch |
-| `git log --summary` | View changes (detailed) |
-| `git log --oneline` | View changes (briefly) |
-| `git diff [source branch] [target branch]` | Preview changes before merging |
-| `git log branchB..branchA` | Show the commits on branchA that are not on branchB |
-| `git log --follow [file]` | Show the commits that changed file, even across renames |
-| `git diff branchB...branchA` | Show the diff of what is in branchA that is not in branchB |
-| `git show [SHA]` | Show any object in Git in human-readable format |
+---
 
-### TRACKING PATH CHANGES
-_Versioning file removes and path changes_
+## 🛠️ Extending the Site
 
-| Command | Description |
-| ------- | ----------- |
-| `git rm [file]` | Delete the file from project and stage the removal for commit |
-| `git mv [existing-path] [new-path]` | Change an existing file path and stage the move |
-| `git log --stat -M` | Show all commit logs with indication of any paths that moved |
+### Add a new section
 
-### REWRITE HISTORY
-_Rewriting branches, updating commits and clearing history_
+Open any `content/*.json` file and add an object to the `sections` array:
 
-| Command | Description |
-| ------- | ----------- |
-| `git rebase [branch]` | Apply any commits of current branch ahead of specified one |
-| `git reset --hard [commit]` | Clear staging area, rewrite working tree from specified commit |
+```json
+{
+  "id": "my-new-section",
+  "title": "My New Section",
+  "content": "<p>Your HTML content here.</p>"
+}
+```
 
-### IGNORING PATTERNS
-_Preventing unintentional staging or commiting of files_
+The sidebar and main content will update automatically.
 
-| Command | Description |
-| ------- | ----------- |
-| `logs/`<br/>`*.notes`<br/>`pattern*/` | Save a file with desired paterns as .gitignore with either direct string matches or wildcard globs. |
-| `git config --global core.excludesfile [file]` | System wide ignore patern for all local repositories |
+### Add a new language
 
-### TEMPORARY COMMITS
-_Temporarily store modified, tracked files in order to change branches_
+1. Create `content/de.json` (copy an existing file as a template)
+2. Register it in `app.js`:
+```js
+const LANGUAGES = {
+  en: 'English',
+  fr: 'Français',
+  de: 'Deutsch'   // add this
+};
+```
+3. Add a button in `index.html`:
+```html
+<button data-lang="de">DE</button>
+```
 
-| Command | Description |
-| ------- | ----------- |
-| `git stash` | Save modified and staged changes |
-| `git stash list` | List stack-order of stashed file changes |
-| `git stash pop` | Write working from top of stash stack |
-| `git stash drop` | Discard the changes from top of stash stack |
+### Re-theme the site
+
+All colours, fonts, spacing, and radii are CSS custom properties at the top of `styles.css`:
+
+```css
+:root {
+  --accent: #0ea5e9;
+  --surface: #ffffff;
+  --font-sans: 'Inter', sans-serif;
+  --radius-m: 8px;
+  /* ... */
+}
+```
+
+Change these values to re-theme the entire site instantly.
+
+---
+
+## 🧰 Built With
+
+| Tool | Purpose |
+|---|---|
+| [Bootstrap 5](https://getbootstrap.com/) | Layout, grid, offcanvas, utilities |
+| [Highlight.js](https://highlightjs.org/) | Syntax highlighting for code blocks |
+| [Inter](https://fonts.google.com/specimen/Inter) | UI font |
+| [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) | Monospace / code font |
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
