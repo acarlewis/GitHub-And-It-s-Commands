@@ -5,114 +5,339 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GitHub &amp; It's Commands</title>
 
-  <!-- Inter + JetBrains Mono from Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- Bootstrap CSS (utilities & offcanvas only) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-
-  <!-- highlight.js — dark terminal theme -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
 
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="./style.css">
+
 </head>
 <body>
 
-  <!-- ══ Top Navbar ══════════════════════════════════════════ -->
-  <header class="app-nav" id="app-nav">
+  <!-- ══ Navbar ══════════════════════════════════════════════ -->
+  <header class="app-nav">
     <div class="app-nav-inner">
-
-      <!-- Hamburger — mobile only -->
       <button class="hamburger d-lg-none"
               type="button"
               data-bs-toggle="offcanvas"
               data-bs-target="#mobileSidebar"
               aria-controls="mobileSidebar"
               aria-label="Open navigation">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
-
-      <!-- Logo -->
       <a class="nav-logo" href="#" aria-label="GitHub Commands home">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
         </svg>
         <span>Git Commands</span>
       </a>
-
-      <!-- Language switcher -->
-      <div class="lang-switcher" role="group" aria-label="Select language">
-        <button class="lang-btn" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="fr">FR</button>
-        <button class="lang-btn" data-lang="tr">TR</button>
-        <button class="lang-btn" data-lang="es">ES</button>
-      </div>
-
     </div>
   </header>
 
-  <!-- ══ Mobile Offcanvas Sidebar ════════════════════════════ -->
-  <div class="offcanvas offcanvas-start"
-       tabindex="-1"
-       id="mobileSidebar"
-       aria-labelledby="mobileSidebarLabel">
+  <!-- ══ Mobile Offcanvas ════════════════════════════════════ -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel">
     <div class="offcanvas-header">
       <span class="offcanvas-title" id="mobileSidebarLabel">Contents</span>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body p-0">
-      <ul class="sidebar-nav" id="offcanvas-nav" aria-label="Page sections"></ul>
+      <ul class="sidebar-nav" aria-label="Page sections">
+        <li><a class="nav-link" href="#installation-guis">Installation &amp; GUIs</a></li>
+        <li><a class="nav-link" href="#setup">Setup</a></li>
+        <li><a class="nav-link" href="#setup-init">Setup &amp; Init</a></li>
+        <li><a class="nav-link" href="#stage-snapshot">Stage &amp; Snapshot</a></li>
+        <li><a class="nav-link" href="#branch-merge">Branch &amp; Merge</a></li>
+        <li><a class="nav-link" href="#sharing-updating">Sharing &amp; Updating Projects</a></li>
+        <li><a class="nav-link" href="#inspection-comparison">Inspection &amp; Comparison</a></li>
+        <li><a class="nav-link" href="#tracking-path">Tracking Path Changes</a></li>
+        <li><a class="nav-link" href="#rewrite-history">Rewrite History</a></li>
+        <li><a class="nav-link" href="#ignoring-patterns">Ignoring Patterns</a></li>
+        <li><a class="nav-link" href="#temporary-commits">Temporary Commits</a></li>
+      </ul>
     </div>
   </div>
 
-  <!-- ══ Main Layout ═════════════════════════════════════════ -->
+  <!-- ══ Layout ══════════════════════════════════════════════ -->
   <div class="app-layout">
 
     <!-- Desktop Sidebar -->
     <aside class="app-sidebar d-none d-lg-flex" aria-label="Page sections">
       <div class="sidebar-inner">
         <p class="sidebar-label">On this page</p>
-        <ul class="sidebar-nav" id="sidebar-nav"></ul>
+        <ul class="sidebar-nav" id="sidebar-nav">
+          <li><a class="nav-link" href="#installation-guis">Installation &amp; GUIs</a></li>
+          <li><a class="nav-link" href="#setup">Setup</a></li>
+          <li><a class="nav-link" href="#setup-init">Setup &amp; Init</a></li>
+          <li><a class="nav-link" href="#stage-snapshot">Stage &amp; Snapshot</a></li>
+          <li><a class="nav-link" href="#branch-merge">Branch &amp; Merge</a></li>
+          <li><a class="nav-link" href="#sharing-updating">Sharing &amp; Updating Projects</a></li>
+          <li><a class="nav-link" href="#inspection-comparison">Inspection &amp; Comparison</a></li>
+          <li><a class="nav-link" href="#tracking-path">Tracking Path Changes</a></li>
+          <li><a class="nav-link" href="#rewrite-history">Rewrite History</a></li>
+          <li><a class="nav-link" href="#ignoring-patterns">Ignoring Patterns</a></li>
+          <li><a class="nav-link" href="#temporary-commits">Temporary Commits</a></li>
+        </ul>
       </div>
     </aside>
 
     <!-- Content -->
-    <main class="app-main" id="app-main">
+    <main class="app-main">
       <div class="content-wrapper">
 
         <header id="page-header">
-          <h1 id="page-title"></h1>
-          <p id="page-subtitle" class="page-subtitle"></p>
+          <h1 id="page-title">GitHub &amp; It's Commands</h1>
+          <p class="page-subtitle">Git is the free and open source distributed version control system responsible for everything GitHub-related that happens locally on your computer. This cheat sheet features the most important and commonly used Git commands for easy reference.</p>
           <div class="page-divider"></div>
         </header>
 
         <div id="content-area">
-          <div class="loading-state">
-            <svg class="spin" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
-            </svg>
-            <span>Loading&hellip;</span>
-          </div>
-        </div>
 
+          <!-- Installation & GUIs -->
+          <section class="section-block" id="installation-guis">
+            <h2>Installation &amp; GUIs <a href="#installation-guis" class="section-anchor" aria-label="Link to Installation &amp; GUIs section">#</a></h2>
+            <p>With platform specific installers for Git, GitHub also provides the ease of staying up-to-date with the latest releases of the command line tool while providing a graphical user interface for day-to-day interaction, review, and repository synchronization.</p>
+            <ul class="list-group list-group-flush border rounded">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <strong>GitHub for Windows</strong>
+                <a href="https://windows.github.com" target="_blank" rel="noopener" class="btn btn-sm btn-outline-primary">windows.github.com</a>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <strong>GitHub for Mac</strong>
+                <a href="https://mac.github.com" target="_blank" rel="noopener" class="btn btn-sm btn-outline-primary">mac.github.com</a>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span><strong>GitHub for All Platforms</strong> <small class="text-muted">(Linux &amp; Solaris)</small></span>
+                <a href="http://git-scm.com" target="_blank" rel="noopener" class="btn btn-sm btn-outline-primary">git-scm.com</a>
+              </li>
+            </ul>
+          </section>
+
+          <!-- Setup -->
+          <section class="section-block" id="setup">
+            <h2>Setup <a href="#setup" class="section-anchor" aria-label="Link to Setup section">#</a></h2>
+            <p>Configuring user information used across all local repositories.</p>
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover">
+                <thead class="table-dark"><tr><th>Command &amp; Description</th></tr></thead>
+                <tbody>
+                  <tr><td><code>git config --global user.name "[firstname lastname]"</code><br><small class="text-muted">Set a name that is identifiable for credit when reviewing version history</small></td></tr>
+                  <tr><td><code>git config --global user.email "[valid-email]"</code><br><small class="text-muted">Set an email address that will be associated with each history marker</small></td></tr>
+                  <tr><td><code>git config --global color.ui auto</code><br><small class="text-muted">Set automatic command line coloring for Git for easy reviewing</small></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Setup & Init -->
+          <section class="section-block" id="setup-init">
+            <h2>Setup &amp; Init <a href="#setup-init" class="section-anchor" aria-label="Link to Setup &amp; Init section">#</a></h2>
+            <p>Configuring user information, initializing and cloning repositories.</p>
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover">
+                <thead class="table-dark"><tr><th>Command</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr><td><code>git init</code></td><td>Initialize an existing directory as a Git repository</td></tr>
+                  <tr><td><code>git clone ssh://git@github.com/[username]/[repository-name].git</code></td><td>Retrieve an entire repository from a hosted location via URL</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Stage & Snapshot -->
+          <section class="section-block" id="stage-snapshot">
+            <h2>Stage &amp; Snapshot <a href="#stage-snapshot" class="section-anchor" aria-label="Link to Stage &amp; Snapshot section">#</a></h2>
+            <p>Working with snapshots and the Git staging area.</p>
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover">
+                <thead class="table-dark"><tr><th>Command</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr><td><code>git status</code></td><td>Show modified files in working directory, staged for your next commit</td></tr>
+                  <tr><td><code>git add [file-name.txt]</code></td><td>Add a file as it looks now to your next commit (stage)</td></tr>
+                  <tr><td><code>git add -A</code></td><td>Add all new and changed files to the staging area</td></tr>
+                  <tr><td><code>git commit -m "[commit message]"</code></td><td>Commit your staged content as a new commit snapshot</td></tr>
+                  <tr><td><code>git reset [file]</code></td><td>Unstage a file while retaining the changes in working directory</td></tr>
+                  <tr><td><code>git diff</code></td><td>Diff of what is changed but not staged</td></tr>
+                  <tr><td><code>git diff --staged</code></td><td>Diff of what is staged but not yet committed</td></tr>
+                  <tr><td><code>git rm -r [file-name.txt]</code></td><td>Remove a file (or folder)</td></tr>
+                  <tr><td><code>git remote -v</code></td><td>View the remote repository of the currently working file or directory</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Branch & Merge -->
+          <section class="section-block" id="branch-merge">
+            <h2>Branch &amp; Merge <a href="#branch-merge" class="section-anchor" aria-label="Link to Branch &amp; Merge section">#</a></h2>
+            <p>Isolating work in branches, changing context, and integrating changes.</p>
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover">
+                <thead class="table-dark"><tr><th>Command</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr><td><code>git branch</code></td><td>List branches (the asterisk denotes the current branch)</td></tr>
+                  <tr><td><code>git branch -a</code></td><td>List all branches (local and remote)</td></tr>
+                  <tr><td><code>git branch [branch name]</code></td><td>Create a new branch at the current commit</td></tr>
+                  <tr><td><code>git branch -d [branch name]</code></td><td>Delete a branch</td></tr>
+                  <tr><td><code>git push origin --delete [branch name]</code></td><td>Delete a remote branch</td></tr>
+                  <tr><td><code>git checkout -b [branch name]</code></td><td>Create a new branch and switch to it</td></tr>
+                  <tr><td><code>git checkout -b [branch name] origin/[branch name]</code></td><td>Clone a remote branch and switch to it</td></tr>
+                  <tr><td><code>git branch -m [old branch name] [new branch name]</code></td><td>Rename a local branch</td></tr>
+                  <tr><td><code>git checkout [branch name]</code></td><td>Switch to a branch</td></tr>
+                  <tr><td><code>git checkout -</code></td><td>Switch to the branch last checked out</td></tr>
+                  <tr><td><code>git checkout -- [file-name.txt]</code></td><td>Discard changes to a file</td></tr>
+                  <tr><td><code>git merge [branch name]</code></td><td>Merge the specified branch's history into the current one</td></tr>
+                  <tr><td><code>git merge [source branch] [target branch]</code></td><td>Merge a branch into a target branch</td></tr>
+                  <tr><td><code>git stash</code></td><td>Stash changes in a dirty working directory</td></tr>
+                  <tr><td><code>git stash clear</code></td><td>Remove all stashed entries</td></tr>
+                  <tr><td><code>git stash pop</code></td><td>Apply latest stash to working directory</td></tr>
+                  <tr><td><code>git log</code></td><td>Show all commits in the current branch's history</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Sharing & Updating -->
+          <section class="section-block" id="sharing-updating">
+            <h2>Sharing &amp; Updating Projects <a href="#sharing-updating" class="section-anchor" aria-label="Link to Sharing &amp; Updating Projects section">#</a></h2>
+            <p>Retrieving updates from another repository and updating local repos.</p>
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover">
+                <thead class="table-dark"><tr><th>Command</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr><td><code>git push origin [branch name]</code></td><td>Push a branch to your remote repository</td></tr>
+                  <tr><td><code>git push -u origin [branch name]</code></td><td>Push changes to remote repository (and remember the branch)</td></tr>
+                  <tr><td><code>git push</code></td><td>Push changes to remote repository (remembered branch)</td></tr>
+                  <tr><td><code>git push origin --delete [branch name]</code></td><td>Delete a remote branch</td></tr>
+                  <tr><td><code>git pull</code></td><td>Update local repository to the newest commit</td></tr>
+                  <tr><td><code>git pull origin [branch name]</code></td><td>Pull changes from remote repository</td></tr>
+                  <tr><td><code>git remote add origin ssh://git@github.com/[username]/[repository-name].git</code></td><td>Add a remote repository</td></tr>
+                  <tr><td><code>git remote set-url origin ssh://git@github.com/[username]/[repository-name].git</code></td><td>Set a repository's origin branch to SSH</td></tr>
+                  <tr><td><code>git fetch [alias]</code></td><td>Fetch down all the branches from that Git remote</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Inspection & Comparison -->
+          <section class="section-block" id="inspection-comparison">
+            <h2>Inspection &amp; Comparison <a href="#inspection-comparison" class="section-anchor" aria-label="Link to Inspection &amp; Comparison section">#</a></h2>
+            <p>Examining logs, diffs and object information.</p>
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover">
+                <thead class="table-dark"><tr><th>Command</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr><td><code>git log</code></td><td>Show the commit history for the currently active branch</td></tr>
+                  <tr><td><code>git log --summary</code></td><td>View changes (detailed)</td></tr>
+                  <tr><td><code>git log --oneline</code></td><td>View changes (briefly)</td></tr>
+                  <tr><td><code>git diff [source branch] [target branch]</code></td><td>Preview changes before merging</td></tr>
+                  <tr><td><code>git log branchB..branchA</code></td><td>Show the commits on branchA that are not on branchB</td></tr>
+                  <tr><td><code>git log --follow [file]</code></td><td>Show the commits that changed file, even across renames</td></tr>
+                  <tr><td><code>git diff branchB...branchA</code></td><td>Show the diff of what is in branchA that is not in branchB</td></tr>
+                  <tr><td><code>git show [SHA]</code></td><td>Show any object in Git in human-readable format</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Tracking Path Changes -->
+          <section class="section-block" id="tracking-path">
+            <h2>Tracking Path Changes <a href="#tracking-path" class="section-anchor" aria-label="Link to Tracking Path Changes section">#</a></h2>
+            <p>Versioning file removes and path changes.</p>
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover">
+                <thead class="table-dark"><tr><th>Command</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr><td><code>git rm [file]</code></td><td>Delete the file from project and stage the removal for commit</td></tr>
+                  <tr><td><code>git mv [existing-path] [new-path]</code></td><td>Change an existing file path and stage the move</td></tr>
+                  <tr><td><code>git log --stat -M</code></td><td>Show all commit logs with indication of any paths that moved</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Rewrite History -->
+          <section class="section-block" id="rewrite-history">
+            <h2>Rewrite History <a href="#rewrite-history" class="section-anchor" aria-label="Link to Rewrite History section">#</a></h2>
+            <p>Rewriting branches, updating commits and clearing history.</p>
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover">
+                <thead class="table-dark"><tr><th>Command</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr><td><code>git rebase [branch]</code></td><td>Apply any commits of current branch ahead of specified one</td></tr>
+                  <tr><td><code>git reset --hard [commit]</code></td><td>Clear staging area, rewrite working tree from specified commit</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Ignoring Patterns -->
+          <section class="section-block" id="ignoring-patterns">
+            <h2>Ignoring Patterns <a href="#ignoring-patterns" class="section-anchor" aria-label="Link to Ignoring Patterns section">#</a></h2>
+            <p>Preventing unintentional staging or committing of files.</p>
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover">
+                <thead class="table-dark"><tr><th>Command</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><pre class="mb-0"><code>logs/
+*.notes
+pattern*/</code></pre></td>
+                    <td>Save a file with desired patterns as <code>.gitignore</code> using direct string matches or wildcard globs</td>
+                  </tr>
+                  <tr><td><code>git config --global core.excludesfile [file]</code></td><td>System wide ignore pattern for all local repositories</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Temporary Commits -->
+          <section class="section-block" id="temporary-commits">
+            <h2>Temporary Commits <a href="#temporary-commits" class="section-anchor" aria-label="Link to Temporary Commits section">#</a></h2>
+            <p>Temporarily store modified, tracked files in order to change branches.</p>
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover">
+                <thead class="table-dark"><tr><th>Command</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr><td><code>git stash</code></td><td>Save modified and staged changes</td></tr>
+                  <tr><td><code>git stash list</code></td><td>List stack-order of stashed file changes</td></tr>
+                  <tr><td><code>git stash pop</code></td><td>Write working from top of stash stack</td></tr>
+                  <tr><td><code>git stash drop</code></td><td>Discard the changes from top of stash stack</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+        </div><!-- #content-area -->
       </div>
     </main>
-
   </div>
 
-  <!-- Back to top -->
   <button id="back-to-top" aria-label="Back to top" title="Back to top">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
 
+  <!-- ══ Scripts ══════════════════════════════════════════════ -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <script src="js/app.js"></script>
+  <script src="./script.js"></script>
+<script>
+  const ICON_COPY  = `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>`;
+    const ICON_CHECK = `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+
+    /* ── Active sidebar link ── */
+    function setActiveSection(id) {
+      $('.sidebar-nav .nav-link').each(function () {
+        $(this).toggleClass('active', $(this).attr('href') === '#' + id);
+      });
+    }
+
+    
+</script>
+
 </body>
 </html>
